@@ -1,0 +1,9 @@
+touch .gitignore 					#criar arquivo 'new file' sem extensão
+git config --global user.nome "nome"			#configurações dos dados de commits
+git config --global user.email "email"			#configurações dos dados de commits
+git init 						#iniciar repositório na pasta em questão	
+git status						#status de commits pendentes, etc.
+git add .						/*
+git add *.txt							adicionar arquivo à staging area
+git add readme.txt											*/
+git commit -m "mensagem"				#adicionar arquivo ao Git Directory
