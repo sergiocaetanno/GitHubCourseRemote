@@ -12,3 +12,4 @@ git diff --staged					#alterações realizadas adicionadas na staging area
 git log 						#histórico de commitssem diffs
 git log -p						#histórico de commits com diffs
 git log -p -2						#histórico de commits com diffs dos 2 últimos commits
+gitk							#interface gráfica para facilitar visualização de diffs
