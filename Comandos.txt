@@ -7,7 +7,7 @@ git add .						/*
 git add *.txt							adicionar arquivo à staging area
 git add readme.txt											*/
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
-git commit -a -m "mensagem				#adicionar arquivo ao Git Directory pulando o add
+git commit -a -m "mensagem				#adicionar arquivo ao Git Directory (não adiciona nada à staging area)
 git diff						#alterações realizadas pré git add 
 git diff --staged					#alterações realizadas adicionadas na staging area
 git log 						#histórico de commits sem diffs
