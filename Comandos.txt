@@ -19,10 +19,16 @@ git log -p -2						#histórico de commits com diffs dos 2 últimos commits
 git log --pretty=oneline				#histórico de apenas commits e hashs organizados por linha
 gitk							#interface gráfica para facilitar visualização de diffs
 git tag							#mostra as tags disponíveis, que são chaves simplificadas que apontam para informações de determinado commit
-git tag -a -m 'nome da tag' "mensagem"			#cria uma tag na versão atual (último commit). Exemplo: git tag -a -m v1.0 "Versão 1.0"  //cria a tag v1.0
-git tag -a -m 'nome da tag' 'hash do commit' "mensagem" #cria uma tag na versão com o hash passado
+git tag -a 'nome da tag' -m "mensagem"			#cria uma tag na versão atual (último commit). Exemplo: git tag -a -m v1.0 "Versão 1.0"  //cria a tag v1.0
+git tag -a 'nome da tag' 'hash do commit'-m "mensagem" 	#cria uma tag na versão com o hash passado
 git tag -d 'nome da tag'				#deletar tag
 git show 'nome da tag'					#mostra informações sobre uma tag
 git checkout 'nome da tag' 				#retorna a versão do repositório para a versão da tag
-git checkout master					#coloca o repositório na versão mais atual
+git branch 'nome da branch'				#cria uma branch (ambiente paralelo)
+git branch						#lista as branches do repositório em questão
+git branch -d 'nome da branch'				#deleta a branch
+git checkout master					#coloca o repositório na branch principal (master) em sua versão final
+git checkout 'nome da branch'				#coloca o repositório na branch escolhida
+git checkout -b 'nome da branch'			#cria a branch e altera para a mesma em uma única linha de código
+git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada
 
