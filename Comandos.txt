@@ -1,3 +1,5 @@
+*Comandos base git*
+
 touch .gitignore 					#criar arquivo 'new file' sem extensão
 git config --global user.nome "nome"			#configurações dos dados de commits
 git config --global user.email "email"			#configurações dos dados de commits
@@ -10,6 +12,7 @@ git rm readme.txt					#retirar arquivo do repositório (deve-se usar ao excluir 
 git reset HEAD readme.txt				#retirar arquivo da stagin area
 git checkout -- readme.txt				#retorna arquivo para o estado original (último commit realizado)
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
+git commit -a -m "mensagem"				#caso não hajam arquivos novos, adiciona as alterações nos arquivos já adicionados ao Git Directory em um único comando (git add embutido)
 git commit --amend -m "mensagem"			#adiciona alterações no commit anterior (não cria novo commit)
 git diff						#alterações realizadas pré git add 
 git diff --staged					#alterações realizadas adicionadas na staging area
@@ -31,4 +34,21 @@ git checkout master					#coloca o repositório na branch principal (master) em s
 git checkout 'nome da branch'				#coloca o repositório na branch escolhida
 git checkout -b 'nome da branch'			#cria a branch e altera para a mesma em uma única linha de código
 git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada
+________________________________________________________________________________________________________________________________________________________________________________________________________
+*Git em rede local: máquina local como servidor*
 
+Passos: 
+
+Criar repositório (pasta local) na máquina servidor
+Compartilhar repositório (pasta local) com pessoas da rede local 	
+\\'nome do dispositivo'										#mostra pastas compartilhadas por esse dispositivo no explorador de arquivos	
+git init --bare											#inicia repositório git que pode ser acessado pelos integrantes da rede local
+git clone file:////'nome do dispositivo servidor'/'caminho do repositório'			#cria um clone do repositório na sua máquina local
+git clone file:////'nome do dispositivo servidor'/'caminho do repositório' 'nome opcional'	#cria um clone do repositório na sua máquina local, alterando o nome do repositório (apenas localmente)	
+
+@Já é possível trabalhar localmente nesse repositório com os comandos estudados anteriormente@
+
+git remote											#retorna o nome do servidor remoto
+git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as informações do local
+git pull 'nome do servidor remoto' 'nome da branch local'					#faz um merge do servidor remoto com o destino (local)
+git fetch 'nome do servidor remoto' 'nome da branch local'					#atualiza os dados do servidor local em relação ao remoto, mas sem realizar um merge
