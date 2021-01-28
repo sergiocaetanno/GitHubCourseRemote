@@ -29,6 +29,7 @@ git show 'nome da tag'					#mostra informações sobre uma tag
 git checkout 'nome da tag' 				#retorna a versão do repositório para a versão da tag
 git checkout 'hash do commit'				#retorna a versão do repositório para a versão do hash
 git branch 'nome da branch'				#cria uma branch (ambiente paralelo)
+git branch -m "novo nome"				#renomeia a branch
 git branch						#lista as branches do repositório em questão
 git branch -d 'nome da branch'				#deleta a branch
 git checkout 'nome da branch'				#coloca o repositório na branch escolhida na sua versão mais recente
@@ -51,6 +52,7 @@ git clone file:////'nome do dispositivo servidor'/'caminho do repositório' 'nom
 git remote											#retorna o nome do servidor remoto
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
+git pull origin master --allow-unrelated-histories						#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
 git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações no local
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 * Git no GitHub *
@@ -71,6 +73,7 @@ git remote											#retorna o nome do servidor remoto no GitHub (por padrão: 
 git remote add origin 'endereço SSH do GitHub'							#adiciona seu repositório local ao GitHub
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
+git pull origin master --allow-unrelated-histories						#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 * Colaboração com outros desenvolvedores *
 
