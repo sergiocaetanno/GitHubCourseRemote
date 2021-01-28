@@ -33,7 +33,7 @@ git branch						#lista as branches do repositório em questão
 git branch -d 'nome da branch'				#deleta a branch
 git checkout 'nome da branch'				#coloca o repositório na branch escolhida na sua versão mais recente
 git checkout -b 'nome da branch'			#cria a branch e altera para a mesma em uma única linha de código
-git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada (necessário resolver conflitos)
+git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada (necessário resolver conflitos e usar git add . e git commit -m "mensagem")
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 *Git em rede local: máquina local como servidor*
 
