@@ -27,11 +27,11 @@ git tag -a 'nome da tag' 'hash do commit'-m "mensagem" 	#cria uma tag na versão
 git tag -d 'nome da tag'				#deletar tag
 git show 'nome da tag'					#mostra informações sobre uma tag
 git checkout 'nome da tag' 				#retorna a versão do repositório para a versão da tag
+git checkout 'hash do commit'				#retorna a versão do repositório para a versão do hash
 git branch 'nome da branch'				#cria uma branch (ambiente paralelo)
 git branch						#lista as branches do repositório em questão
 git branch -d 'nome da branch'				#deleta a branch
-git checkout master					#coloca o repositório na branch principal (master) em sua versão final
-git checkout 'nome da branch'				#coloca o repositório na branch escolhida
+git checkout 'nome da branch'				#coloca o repositório na branch escolhida na sua versão mais recente
 git checkout -b 'nome da branch'			#cria a branch e altera para a mesma em uma única linha de código
 git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada (necessário resolver conflitos)
 ________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -52,3 +52,32 @@ git remote											#retorna o nome do servidor remoto
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
 git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações no local
+________________________________________________________________________________________________________________________________________________________________________________________________________
+* Git no GitHub *
+
+Passos:
+
+Criar chave SSH para dar acesso do dispositivo local à interações na sua conta no GitHub. Haverá opção de salvar a chave em um arquivo ou de criar senha para a chave, que seria requerida para cada 
+operação no repositório. Não selecionando o arquivo e a senha, por padrão, a chave ssh fica salva na pasta do usuário indicada e as operações podem ser realizadas livremente (opção mais viável)
+
+Copiar chave SSH do arquivo id_rsa.pub (chave pública) e levar para o GitHub, em Account Settings - SSH Keys - Add SSH key. Além da SSH key, pode-se escolher um título para a chave, ex.: Pc Local
+
+Criar repositório no Git Hub
+
+ssh-keygen											#gera chave ssh
+git clone 'endereço SSH do github' 								#clona repositório remoto para sua máquina
+git clone 'endereço SSH do github' 'nome opcional'						#clona repositório remoto para sua máquina com um nome opcional
+git remote											#retorna o nome do servidor remoto no GitHub (por padrão: origin)
+git remote add origin 'endereço SSH do GitHub'							#adiciona seu repositório local ao GitHub
+git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
+git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
+________________________________________________________________________________________________________________________________________________________________________________________________________
+* Colaboração com outros desenvolvedores *
+
+Não é possível alterar diretamente projetos de outros desenvolvedores. Daí, algumas ações podem ser executadas para tal colaboração:
+
+Fork (opção disponível em botão presente nos repositórios no GitHub) -> Trazer um repositório de outro usuário para o seu GitHub, tornando-o editável, mas não alterando o repositório original
+
+Pull Request (opção disponível em botão presente nos repositórios forked no GitHub) -> Opção do GitHub que cria um pedido de merge entre o seu repositório forked com as devidas colaborações e o 
+repositório original
+
