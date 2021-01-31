@@ -51,6 +51,7 @@ git clone file:////'nome do dispositivo servidor'/'caminho do repositório' 'nom
 
 git remote											#retorna o nome do servidor remoto
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
+git push --set-upstream origin 'nome da branch'							#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
 git pull origin master --allow-unrelated-histories						#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
 git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações no local
@@ -72,6 +73,7 @@ git clone 'endereço SSH do github' 'nome opcional'						#clona repositório rem
 git remote											#retorna o nome do servidor remoto no GitHub (por padrão: origin)
 git remote add origin 'endereço SSH do GitHub'							#adiciona seu repositório local ao GitHub
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
+git push --set-upstream origin 'nome da branch'							#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
 git pull origin master --allow-unrelated-histories						#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
 ________________________________________________________________________________________________________________________________________________________________________________________________________
