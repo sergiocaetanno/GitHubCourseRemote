@@ -9,6 +9,7 @@ git add .						/*
 git add *.txt							adicionar arquivo à staging area
 git add readme.txt											*/
 git rm readme.txt					#retirar arquivo do repositório (deve-se usar ao excluir algum arquivo do diretório)
+git rm -r diretorio					#retirar diretório do repositório
 git reset HEAD readme.txt				#retirar arquivo da stagin area
 git checkout -- readme.txt				#retorna arquivo para o estado original (último commit realizado)
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
@@ -50,6 +51,9 @@ git clone file:////'nome do dispositivo servidor'/'caminho do repositório' 'nom
 @ Já é possível trabalhar localmente nesse repositório com os comandos estudados anteriormente @
 
 git remote											#retorna o nome do servidor remoto
+git remote add origin 'endereço SSH do GitHub'							#adiciona seu repositório local ao GitHub
+git remote rm 'nome do repositório'								#desvincula um repositório remoto
+git remote rename origin 'nome do repositório'							#renomea repositório remoto
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
 git push --set-upstream origin 'nome da branch'							#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
@@ -72,6 +76,8 @@ git clone 'endereço SSH do github' 								#clona repositório remoto para sua 
 git clone 'endereço SSH do github' 'nome opcional'						#clona repositório remoto para sua máquina com um nome opcional
 git remote											#retorna o nome do servidor remoto no GitHub (por padrão: origin)
 git remote add origin 'endereço SSH do GitHub'							#adiciona seu repositório local ao GitHub
+git remote rm 'nome do repositório'								#desvincula um repositório remoto
+git remote rename origin 'nome do repositório'							#renomea repositório remoto
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
 git push --set-upstream origin 'nome da branch'							#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
