@@ -12,13 +12,12 @@ git rm readme.txt					#retirar arquivo do repositório (deve-se usar ao excluir 
 git restore 'nome do arquivo' ou git restore .		#restaura mudanças realizadas no WORKING DIRECTORY em um ou todos os arquivos
 git restore --staged 'nome do arquivo'			#retira arquivo da staging area
 git rm -r diretorio					#retirar diretório do repositório
-<<<<<<< HEAD
 git clean -n						#mostra arquivos untracked que serão removidos pelo comando git clean -f
 git clean -f						#apaga permanentemente todos os arquivos untracked do repositório
 git checkout -- 'hash' 'nome do arquivo'		#trás o arquivo para o local de trabalho, na versão indicada pelo hash
 git checkout -- 'nome do arquivo'			#trás o arquivo para o local de trabalho, na versão do último commit realizado
 git revert HEAD~'n'					#reverte e commita o repositório para a versão 'n' vezes anterior ao HEAD
-git revert HEAD 'hash'					#reverte e commita o repositório para a versão do rash				
+git revert HEAD 'hash'					#reverte e commita o repositório para a versão do hash				
 git reset HEAD readme.txt				#retirar arquivo da stagin area
 git checkout -- readme.txt				#retorna arquivo para o estado original (último commit realizado)
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
