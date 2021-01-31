@@ -17,8 +17,8 @@ git clean -n						#mostra arquivos untracked que serão removidos pelo comando g
 git clean -f						#apaga permanentemente todos os arquivos untracked do repositório
 git checkout -- 'hash' 'nome do arquivo'		#trás o arquivo para o local de trabalho, na versão indicada pelo hash
 git checkout -- 'nome do arquivo'			#trás o arquivo para o local de trabalho, na versão do último commit realizado
-git revert HEAD~'1 para o penúltimo, 2 para o ante..'	#
-git revert HEAD 'hash'					#				
+git revert HEAD~'n'					#reverte e commita o repositório para a versão 'n' vezes anterior ao HEAD
+git revert HEAD 'hash'					#reverte e commita o repositório para a versão do rash				
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
 git commit -a -m "mensagem"				#caso não hajam arquivos novos, adiciona as alterações nos arquivos já adicionados ao Git Directory em um único comando (git add embutido)
 git commit --amend -m "mensagem"			#adiciona alterações no commit anterior (não cria novo commit)
