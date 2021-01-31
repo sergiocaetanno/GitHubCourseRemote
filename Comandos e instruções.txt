@@ -11,9 +11,14 @@ git add readme.txt											*/
 git rm readme.txt					#retirar arquivo do repositório (deve-se usar ao excluir algum arquivo do diretório)
 git restore 'nome do arquivo' ou git restore .		#restaura mudanças realizadas no WORKING DIRECTORY em um ou todos os arquivos
 git restore --staged 'nome do arquivo'			#retira arquivo da staging area
+git reset HEAD 'nome do arquivo'			#retirar arquivo da stagin area (alternativa)
 git rm -r diretorio					#retirar diretório do repositório
-git reset HEAD readme.txt				#retirar arquivo da stagin area
-git checkout -- readme.txt				#retorna arquivo para o estado original (último commit realizado)
+git clean -n						#mostra arquivos untracked que serão removidos pelo comando git clean -f
+git clean -f						#apaga permanentemente todos os arquivos untracked do repositório
+git checkout -- 'hash' 'nome do arquivo'		#trás o arquivo para o local de trabalho, na versão indicada pelo hash
+git checkout -- 'nome do arquivo'			#trás o arquivo para o local de trabalho, na versão do último commit realizado
+git revert HEAD~'1 para o penúltimo, 2 para o ante..'	#
+git revert HEAD 'hash'					#				
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
 git commit -a -m "mensagem"				#caso não hajam arquivos novos, adiciona as alterações nos arquivos já adicionados ao Git Directory em um único comando (git add embutido)
 git commit --amend -m "mensagem"			#adiciona alterações no commit anterior (não cria novo commit)
@@ -29,8 +34,8 @@ git tag -a 'nome da tag' -m "mensagem"			#cria uma tag na versão atual (último
 git tag -a 'nome da tag' 'hash do commit'-m "mensagem" 	#cria uma tag na versão com o hash passado
 git tag -d 'nome da tag'				#deletar tag
 git show 'nome da tag'					#mostra informações sobre uma tag
-git checkout 'nome da tag' 				#retorna a versão do repositório para a versão da tag
-git checkout 'hash do commit'				#retorna a versão do repositório para a versão do hash
+git checkout 'nome da tag' 				#Navega para a versão da tag
+git checkout 'hash do commit'				#Navega para a versão do hash
 git branch 'nome da branch'				#cria uma branch (ambiente paralelo)
 git branch -m "novo nome"				#renomeia a branch
 git branch						#lista as branches do repositório em questão
