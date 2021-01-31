@@ -7,10 +7,11 @@ git init 						#iniciar repositório na pasta em questão
 git status						#status de commits pendentes, etc.
 git add .						/*
 git add *.txt							adicionar arquivo à staging area
-git add readme.txt											*/
-git rm readme.txt					#retirar arquivo do repositório (deve-se usar ao excluir algum arquivo do diretório)
+git add 'nome do arquivo'										*/
+git rm 'nome do arquivo'				#retirar arquivo do repositório (deve-se usar ao excluir algum arquivo do diretório)
 git restore 'nome do arquivo' ou git restore .		#restaura mudanças realizadas no WORKING DIRECTORY em um ou todos os arquivos
 git restore --staged 'nome do arquivo'			#retira arquivo da staging area
+git reset HEAD 'nome do arquivo'			#retirar arquivo da stagin area (alternativa)
 git rm -r diretorio					#retirar diretório do repositório
 git clean -n						#mostra arquivos untracked que serão removidos pelo comando git clean -f
 git clean -f						#apaga permanentemente todos os arquivos untracked do repositório
@@ -18,8 +19,6 @@ git checkout -- 'hash' 'nome do arquivo'		#trás o arquivo para o local de traba
 git checkout -- 'nome do arquivo'			#trás o arquivo para o local de trabalho, na versão do último commit realizado
 git revert HEAD~'n'					#reverte e commita o repositório para a versão 'n' vezes anterior ao HEAD
 git revert HEAD 'hash'					#reverte e commita o repositório para a versão do hash				
-git reset HEAD readme.txt				#retirar arquivo da stagin area
-git checkout -- readme.txt				#retorna arquivo para o estado original (último commit realizado)
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
 git commit -a -m "mensagem"				#caso não hajam arquivos novos, adiciona as alterações nos arquivos já adicionados ao Git Directory em um único comando (git add embutido)
 git commit --amend -m "mensagem"			#adiciona alterações no commit anterior (não cria novo commit)
@@ -29,6 +28,7 @@ git log 						#histórico de commits sem diffs
 git log -p						#histórico de commits com diffs
 git log -p -2						#histórico de commits com diffs dos 2 últimos commits
 git log --pretty=oneline				#histórico de apenas commits e hashs organizados por linha
+git log --oneline					#histórico de apenas commits e hashs(abreviadas) organizados por linha
 gitk							#interface gráfica para facilitar visualização de diffs
 git tag							#mostra as tags disponíveis, que são chaves simplificadas que apontam para informações de determinado commit
 git tag -a 'nome da tag' -m "mensagem"			#cria uma tag na versão atual (último commit). Exemplo: git tag -a -m v1.0 "Versão 1.0"  //cria a tag v1.0
@@ -59,13 +59,13 @@ git clone file:////'nome do dispositivo servidor'/'caminho do repositório' 'nom
 @ Já é possível trabalhar localmente nesse repositório com os comandos estudados anteriormente @
 
 git remote											#retorna o nome do servidor remoto
-git remote add origin 'endereço SSH do GitHub'							#adiciona seu repositório local ao GitHub
+git remote add 'nome do servidor remoto' 'endereço SSH do GitHub'				#adiciona seu repositório local ao GitHub
 git remote rm 'nome do repositório'								#desvincula um repositório remoto
-git remote rename origin 'nome do repositório'							#renomea repositório remoto
+git remote rename 'nome do servidor remoto' 'nome do repositório'				#renomea repositório remoto
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
-git push --set-upstream origin 'nome da branch'							#cria branch local remotamente e executa push
+git push --set-upstream 'nome do servidor remoto' 'nome da branch'				#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
-git pull origin master --allow-unrelated-histories						#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
+git pull 'nome do servidor remoto' 'nome da branch' --allow-unrelated-histories			#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
 git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações no local
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 * Git no GitHub *
@@ -83,13 +83,13 @@ ssh-keygen											#gera chave ssh
 git clone 'endereço SSH do github' 								#clona repositório remoto para sua máquina
 git clone 'endereço SSH do github' 'nome opcional'						#clona repositório remoto para sua máquina com um nome opcional
 git remote											#retorna o nome do servidor remoto no GitHub (por padrão: origin)
-git remote add origin 'endereço SSH do GitHub'							#adiciona seu repositório local ao GitHub
+git remote add 'nome do servidor remoto' 'endereço SSH do GitHub'				#adiciona seu repositório local ao GitHub
 git remote rm 'nome do repositório'								#desvincula um repositório remoto
-git remote rename origin 'nome do repositório'							#renomea repositório remoto
+git remote rename 'nome do servidor remoto' 'nome do repositório'				#renomea repositório remoto
 git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza o servidor remoto com as alterações locais
-git push --set-upstream origin 'nome da branch'							#cria branch local remotamente e executa push
+git push --set-upstream 'nome do servidor remoto' 'nome da branch'				#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
-git pull origin master --allow-unrelated-histories						#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
+git pull 'nome do servidor remoto' 'nome da branch' --allow-unrelated-histories			#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 * Colaboração com outros desenvolvedores *
 
