@@ -9,6 +9,8 @@ git add .						/*
 git add *.txt							adicionar arquivo à staging area
 git add readme.txt											*/
 git rm readme.txt					#retirar arquivo do repositório (deve-se usar ao excluir algum arquivo do diretório)
+git restore 'nome do arquivo' ou git restore .		#restaura mudanças realizadas no WORKING DIRECTORY em um ou todos os arquivos
+git restore --staged 'nome do arquivo'			#retira arquivo da staging area
 git rm -r diretorio					#retirar diretório do repositório
 git reset HEAD readme.txt				#retirar arquivo da stagin area
 git checkout -- readme.txt				#retorna arquivo para o estado original (último commit realizado)

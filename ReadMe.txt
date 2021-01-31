@@ -1,1 +1,1 @@
-Iniciando repositórios git
+Iniciando repositórios git.
