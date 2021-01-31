@@ -44,19 +44,28 @@ git branch -d 'nome da branch'				#deleta a branch
 git checkout 'nome da branch'				#coloca o repositório na branch escolhida na sua versão mais recente
 git checkout -b 'nome da branch'			#cria a branch e altera para a mesma em uma única linha de código
 git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada (necessário resolver conflitos e usar git add . e git commit -m "mensagem")
+git stash save "mensagem"				#esconde e armazena alterações temporáriamente, permitindo navegação entre branches antes de adicionar e commitar as mudanças
+git stash list 						#mostra os stashs realizados acompanhados de uma chave stash@{n°} e a mensagem 
+git stash apply 'chave stash'				#aplica as mudanças armazenadas em um stash mas mantém o stash
+git stash pop 						#aplica as mudanças armazenadas no último stash, e o exclui
+git stash drop 'chave stash'				#exclui o stash selecionado pela chave
+git stash clear						#apaga todos os stashes 
+
+@ É possível resgatar alterações de stashs feitos em uma branch em outra				
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 *Git em rede local: máquina local como servidor*
 
-Passos: 
+@ Passos: 
 
-Criar repositório (pasta local) na máquina servidor
-Compartilhar repositório (pasta local) com pessoas da rede local 	
+@ Criar repositório (pasta local) na máquina servidor 
+@ Compartilhar repositório (pasta local) com pessoas da rede local 
+	
 \\'nome do dispositivo'										#mostra pastas compartilhadas por esse dispositivo no explorador de arquivos	
 git init --bare											#inicia repositório git que pode ser acessado pelos integrantes da rede local
 git clone file:////'nome do dispositivo servidor'/'caminho do repositório'			#cria um clone do repositório na sua máquina local
 git clone file:////'nome do dispositivo servidor'/'caminho do repositório' 'nome opcional'	#cria um clone do repositório na sua máquina local, alterando o nome do repositório (apenas localmente)	
 
-@ Já é possível trabalhar localmente nesse repositório com os comandos estudados anteriormente @
+@ Já é possível trabalhar localmente nesse repositório com os comandos estudados anteriormente 
 
 git remote											#retorna o nome do servidor remoto
 git remote add 'nome do servidor remoto' 'endereço SSH do GitHub'				#adiciona seu repositório local ao GitHub
@@ -70,14 +79,14 @@ git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositór
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 * Git no GitHub *
 
-Passos:
+@ Passos: 
 
-Criar chave SSH para dar acesso do dispositivo local à interações na sua conta no GitHub. Haverá opção de salvar a chave em um arquivo ou de criar senha para a chave, que seria requerida para cada 
-operação no repositório. Não selecionando o arquivo e a senha, por padrão, a chave ssh fica salva na pasta do usuário indicada e as operações podem ser realizadas livremente (opção mais viável)
+@ Criar chave SSH para dar acesso do dispositivo local à interações na sua conta no GitHub. Haverá opção de salvar a chave em um arquivo ou de criar senha para a chave, que seria requerida para cada 
+operação no repositório. Não selecionando o arquivo e a senha, por padrão, a chave ssh fica salva na pasta do usuário indicada e as operações podem ser realizadas livremente (opção mais viável) 
 
-Copiar chave SSH do arquivo id_rsa.pub (chave pública) e levar para o GitHub, em Account Settings - SSH Keys - Add SSH key. Além da SSH key, pode-se escolher um título para a chave, ex.: Pc Local
+@ Copiar chave SSH do arquivo id_rsa.pub (chave pública) e levar para o GitHub, em Account Settings - SSH Keys - Add SSH key. Além da SSH key, pode-se escolher um título para a chave, ex.: Pc Local 
 
-Criar repositório no Git Hub
+@ Criar repositório no Git Hub
 
 ssh-keygen											#gera chave ssh
 git clone 'endereço SSH do github' 								#clona repositório remoto para sua máquina
@@ -93,10 +102,10 @@ git pull 'nome do servidor remoto' 'nome da branch' --allow-unrelated-histories	
 ________________________________________________________________________________________________________________________________________________________________________________________________________
 * Colaboração com outros desenvolvedores *
 
-Não é possível alterar diretamente projetos de outros desenvolvedores. Daí, algumas ações podem ser executadas para tal colaboração:
+@ Não é possível alterar diretamente projetos de outros desenvolvedores. Daí, algumas ações podem ser executadas para tal colaboração:
 
-Fork (opção disponível em botão presente nos repositórios no GitHub) -> Trazer um repositório de outro usuário para o seu GitHub, tornando-o editável, mas não alterando o repositório original
+@ Fork (opção disponível em botão presente nos repositórios no GitHub) -> Trazer um repositório de outro usuário para o seu GitHub, tornando-o editável, mas não alterando o repositório original
 
-Pull Request (opção disponível em botão presente nos repositórios forked no GitHub) -> Opção do GitHub que cria um pedido de merge entre o seu repositório forked com as devidas colaborações e o 
+@ Pull Request (opção disponível em botão presente nos repositórios forked no GitHub) -> Opção do GitHub que cria um pedido de merge entre o seu repositório forked com as devidas colaborações e o 
 repositório original
 
