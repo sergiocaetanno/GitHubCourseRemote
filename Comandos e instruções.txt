@@ -12,6 +12,8 @@ git rm 'nome do arquivo'				#retirar arquivo do repositório (deve-se usar ao ex
 git restore 'nome do arquivo' ou git restore .		#restaura mudanças realizadas no WORKING DIRECTORY em um ou todos os arquivos
 git restore --staged 'nome do arquivo'			#retira arquivo da staging area
 git reset HEAD 'nome do arquivo'			#retirar arquivo da stagin area (alternativa)
+git reset --hard HEAD~'n°'				#retorna para 'n°' commits antes do HEAD, destruindo todos os commits posteriores (usar com cautela)
+git reset --soft HEAD~'n°'				#retorna para 'n°' commits antes do HEAD. As alterações dos commits posteriores ficam pendentes no git status como "Changes to be committed"
 git rm -r diretorio					#retirar diretório do repositório
 git clean -n						#mostra arquivos untracked que serão removidos pelo comando git clean -f
 git clean -f						#apaga permanentemente todos os arquivos untracked do repositório
@@ -43,16 +45,19 @@ git branch						#lista as branches do repositório em questão
 git branch -d 'nome da branch'				#deleta a branch
 git checkout 'nome da branch'				#coloca o repositório na branch escolhida na sua versão mais recente
 git checkout -b 'nome da branch'			#cria a branch e altera para a mesma em uma única linha de código
-git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada (necessário resolver conflitos e usar git add . e git commit -m "mensagem")
+git merge 'nome da branch que deseja mesclar'		#mescla a branch desejada com a atualmente selecionada e commita o merge (necessário resolver conflitos e usar git add . e git commit -m "mensagem")
+git merge 'nome da branch' --squash			#trás os arquivos da branch desejada para a selecionada. Após isso, para completar a mescla, é necessário realizar um commit. Dessa forma, todos os commits da branch secundária são transformados em um único (squash)
+git rebase 'nome da branch'				#CUIDADO! Não cria commit. Pesquisar funcionamento antes de utilizar (anotação meramente informativa da existência do comando) -> Entendimento básico: intercala a branch selecionada na branch desejada (geralmente master) no momento de criação da branch selecionada.
 git stash save "mensagem"				#esconde e armazena alterações temporáriamente, permitindo navegação entre branches antes de adicionar e commitar as mudanças
 git stash list 						#mostra os stashs realizados acompanhados de uma chave stash@{n°} e a mensagem 
 git stash apply 'chave stash'				#aplica as mudanças armazenadas em um stash mas mantém o stash
 git stash pop 						#aplica as mudanças armazenadas no último stash, e o exclui
 git stash drop 'chave stash'				#exclui o stash selecionado pela chave
 git stash clear						#apaga todos os stashes 
+git cherry-pick 'hash do commit desejado'		#trás para a branch atual um único commit de uma branch secundária
 
 @ É possível resgatar alterações de stashs feitos em uma branch em outra				
-________________________________________________________________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 *Git em rede local: máquina local como servidor*
 
 @ Passos: 
@@ -76,7 +81,7 @@ git push --set-upstream 'nome do servidor remoto' 'nome da branch'				#cria bran
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
 git pull 'nome do servidor remoto' 'nome da branch' --allow-unrelated-histories			#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
 git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações no local
-________________________________________________________________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 * Git no GitHub *
 
 @ Passos: 
@@ -99,7 +104,7 @@ git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza
 git push --set-upstream 'nome do servidor remoto' 'nome da branch'				#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
 git pull 'nome do servidor remoto' 'nome da branch' --allow-unrelated-histories			#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
-________________________________________________________________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 * Colaboração com outros desenvolvedores *
 
 @ Não é possível alterar diretamente projetos de outros desenvolvedores. Daí, algumas ações podem ser executadas para tal colaboração:
