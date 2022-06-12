@@ -80,7 +80,7 @@ git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza
 git push --set-upstream 'nome do servidor remoto' 'nome da branch'				#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
 git pull 'nome do servidor remoto' 'nome da branch' --allow-unrelated-histories			#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
-git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações no local
+git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações na branch local (alterações são feitas nas branches locais intermediária: remotes/origin/...)
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 * Git no GitHub *
 
@@ -104,6 +104,7 @@ git push 'nome do servidor remoto' 'nome da branch (master, teste)'				#atualiza
 git push --set-upstream 'nome do servidor remoto' 'nome da branch'				#cria branch local remotamente e executa push
 git pull 'nome do servidor remoto' 'nome da branch'						#faz um merge, no repositório local, com o repositório remoto
 git pull 'nome do servidor remoto' 'nome da branch' --allow-unrelated-histories			#faz um merge, no repositório local, com o repositório remoto mesmo que com históricos diferentes
+git fetch 'nome do servidor remoto' 'nome da branch'						#atualiza o repositório local em relação ao remoto, mas sem alterações na branch local (alterações são feitas nas branches locais intermediária: remotes/origin/...)
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 * Colaboração com outros desenvolvedores *
 
