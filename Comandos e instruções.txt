@@ -3,6 +3,9 @@
 touch .gitignore 					#criar arquivo 'new file' sem extensão
 git config --global user.nome "nome"			#configurações dos dados de commits
 git config --global user.email "email"			#configurações dos dados de commits
+git config --global core.editor 'comando do editor'     #configura o editor de texto a ser usado. Ex.: git config --global core.editor code
+git config --global core.editor "comando do editor -w"  #configura o editor de texto a ser usado. A finalização do commit ocorre apenas ao salvar e fechar o editor de texto escolhido. Ex.: git config --global core.editor "code -w". 
+git config --global --replace-all core.editor 'comando do editor' #substitui o editor de texto atual por outro.
 git init 						#iniciar repositório na pasta em questão	
 git status						#status de commits pendentes, etc.
 git add .						/*
