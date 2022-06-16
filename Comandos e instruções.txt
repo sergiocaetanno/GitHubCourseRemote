@@ -20,8 +20,8 @@ git reset --soft HEAD~'n°'				#retorna para 'n°' commits antes do HEAD. As alt
 git rm -r diretorio					#retirar diretório do repositório
 git clean -n						#mostra arquivos untracked que serão removidos pelo comando git clean -f
 git clean -f						#apaga permanentemente todos os arquivos untracked do repositório
-git checkout -- 'hash' 'nome do arquivo'		#trás o arquivo para o local de trabalho, na versão indicada pelo hash
-git checkout -- 'nome do arquivo'			#trás o arquivo para o local de trabalho, na versão do último commit realizado
+git checkout 'hash' 'nome do arquivo'		        #trás o arquivo para o local de trabalho, na versão indicada pelo hash
+git checkout 'nome da branch' 'nome do arquivo'		#trás o arquivo para o local de trabalho, na versão do último commit realizado
 git revert HEAD~'n'					#reverte o commit da versão 'n' vezes anterior ao HEAD e commita essa reversão
 git revert HEAD 'hash'					#reverte o commit indicado pelo hash e commita essa reversão				
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
