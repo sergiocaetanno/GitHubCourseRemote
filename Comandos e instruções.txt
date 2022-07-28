@@ -15,6 +15,8 @@ git rm 'nome do arquivo'				#retirar arquivo do repositório (deve-se usar ao ex
 git restore 'nome do arquivo' ou git restore .		#restaura mudanças realizadas no WORKING DIRECTORY em um ou todos os arquivos
 git restore --staged 'nome do arquivo'			#retira arquivo da staging area
 git reset HEAD 'nome do arquivo'			#retirar arquivo da stagin area (alternativa)
+git reset --hard HEAD~'HashDoCommit'			#retorna para o commit do hash, destruindo todos os commits posteriores (usar com cautela)
+git reset --soft HEAD~'HashDoCommit'			#retorna para o commit do HEAD. As alterações dos commits posteriores ficam pendentes no git status como "Changes to be committed"
 git reset --hard HEAD~'n°'				#retorna para 'n°' commits antes do HEAD, destruindo todos os commits posteriores (usar com cautela)
 git reset --soft HEAD~'n°'				#retorna para 'n°' commits antes do HEAD. As alterações dos commits posteriores ficam pendentes no git status como "Changes to be committed"
 git rm -r diretorio					#retirar diretório do repositório
