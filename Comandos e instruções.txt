@@ -23,7 +23,7 @@ git rm -r diretorio					#retirar diretório do repositório
 git clean -n						#mostra arquivos untracked que serão removidos pelo comando git clean -f
 git clean -f						#apaga permanentemente todos os arquivos untracked do repositório
 git checkout 'hash' 'nome do arquivo'		        #trás o arquivo para o local de trabalho, na versão indicada pelo hash
-git checkout 'nome da branch' 'nome do arquivo'		#trás o arquivo para o local de trabalho, na versão do último commit realizado
+git checkout 'nome da branch' 'nome do arquivo'		#trás o arquivo para o local de trabalho, na versão do último commit realizado na branch indicada
 git revert HEAD~'n'					#reverte o commit da versão 'n' vezes anterior ao HEAD e commita essa reversão
 git revert HEAD 'hash'					#reverte o commit indicado pelo hash e commita essa reversão				
 git commit -m "mensagem"				#adicionar arquivo ao Git Directory
@@ -36,14 +36,15 @@ git log -p						#histórico de commits com diffs
 git log -p -2						#histórico de commits com diffs dos 2 últimos commits
 git log --pretty=oneline				#histórico de apenas commits e hashs organizados por linha
 git log --oneline					#histórico de apenas commits e hashs(abreviadas) organizados por linha
+git log --graph                                         #histórico de commits e hashs organizados em um pequeno gráfico representando as branchs e suas interações.
 gitk							#interface gráfica para facilitar visualização de diffs
 git tag							#mostra as tags disponíveis, que são chaves simplificadas que apontam para informações de determinado commit
 git tag -a 'nome da tag' -m "mensagem"			#cria uma tag na versão atual (último commit). Exemplo: git tag -a -m v1.0 "Versão 1.0"  //cria a tag v1.0
 git tag -a 'nome da tag' 'hash do commit'-m "mensagem" 	#cria uma tag na versão com o hash passado
 git tag -d 'nome da tag'				#deletar tag
 git show 'nome da tag'					#mostra informações sobre uma tag
-git checkout 'nome da tag' 				#retorna a versão do repositório para a versão da tag
-git checkout 'hash do commit'				#retorna a versão do repositório para a versão do hash
+git checkout 'nome da tag' 				#retorna a versão do repositório para a versão da tag, mas fica em estado detached (fora de qualquer branch, sendo necessário criar outra branch para salvar alterações realizadas nesse estado)
+git checkout 'hash do commit'				#retorna a versão do repositório para a versão do hash, mas fica em estado detached (fora de qualquer branch, sendo necessário criar outra branch para salvar alterações realizadas nesse estado)
 git branch 'nome da branch'				#cria uma branch (ambiente paralelo)
 git branch -m "novo nome"				#renomeia a branch
 git branch						#lista as branches do repositório em questão
